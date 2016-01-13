@@ -9,6 +9,18 @@
     $b = "<br>";
     $line = '<br><br>----------------------------<br><br>';
 
+
+
+    //Fazer abertura de arquivo
+    $fp = fopen("/opt/lampp/htdocs/cursophp/teste.pdf", "r");
+
+    
+
+
+
+
+
+
     print($line);
     // ----------------------------------------------------------
     /*Exemplo de funcao recursiva, na qual podemos dizer simplificadamente
@@ -107,15 +119,24 @@
     // ----------------------------------------------------------
     //montando array
 
-    $vet = array('maça', 'laranja', 'banana', 'pera', 'abacaxi');
+    $vet = array('maça', 'laranja', 'banana', 'pera', 'abacaxi');    
 
     foreach ($vet as $key => $value) //vetor, chave e o valor contido na chave
     {
         if ($value == 'pera')
         {
-            print("$key - $value");
+            print("$key - $value" . $b);
         }
         // print("$key . $value - ");
+    }
+
+    print("-----<br>");
+
+    //Exemplo de array em que informo a chave e o seu valor
+    $vet2 = array("maça" => "vermelha", "laranja" => "Adivinha", "banana" => 3, "pera" => 4, "abacaxi" => 5);
+    foreach ($vet2 as $key => $value) 
+    {
+        print("array[$key] => $value <br>");
     }
 
     print($line);
@@ -133,7 +154,7 @@
 
     for ($i=0; $i < 10; $i++)
     { 
-        print($i.$b);
+        print("$i - ");
     }
 
 ?>
