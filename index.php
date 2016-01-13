@@ -12,7 +12,21 @@
     print($line);
     // ----------------------------------------------------------
     /*Exemplo de funcao recursiva, na qual podemos dizer simplificadamente
-    que a função "SE CHAMA" conforma a necessidade*/
+    que a função "SE AUTO CHAMA" conforme a necessidade*/
+
+    print(fatorial(5));
+
+    function fatorial($num)
+    {
+        if ($num == 1)
+        {
+            return $num;
+        }
+        else
+        {
+            return $num * fatorial($num - 1);
+        }
+    }
 
 
 
