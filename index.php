@@ -170,7 +170,7 @@
     $vet = array('maça', 'laranja', 'banana', 'pera', 'abacaxi');
 
     //Segunda maneira de montar array ASSOCIATIVO, onde informo a chave e o seu valor
-    $vet2 = array("maça" => "vermelha", "laranja" => "Adivinha", "banana" => 3, "pera" => 4, "abacaxi" => 5);
+    $vet2 = array("maça" => "vermelha", "laranja" => "Adivinha", "banana" => 3, "pera" => 4, "abacaxi" => 5, "abacate" => "verde com caroço");
 
     //Terceira maneira de montar um array simples
     $vet3[] = "Maria";
@@ -235,6 +235,14 @@
     {
         print("$value - ");
     }
+
+    print("<br><br>bla bla <br><br>");
+
+    $exe = array_values($vet4);
+
+    print_r(array_values($vet4)); //imprime o conteúdo do array
+
+    print($b . $b . count($vet2)); //informa o tamanho do array
 
     
     print($line);
