@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'biblioteca.php';
+    include_once "biblioteca.php";
     
     echo "Hello new World <br><br>";
     // define($line, '<br><br>----------------------------<br><br>');
@@ -9,17 +9,64 @@
     $b = "<br>";
     $line = '<br><br>----------------------------<br><br>';
 
+    //TRABALHANDO COM ARRYS
 
 
-    //Fazer abertura de arquivo
-    $fp = fopen("/opt/lampp/htdocs/cursophp/teste.pdf", "r");
+        print($line);
+    // ----------------------------------------------------------
 
+    print(strtoupper("Hello world! <br>")); //MAIÚSCULA
+    print(strtolower("Hello world! <br>")); //minuscula
+
+
+    print($line);
+    // ----------------------------------------------------------
+
+    //Verificar a existencia de um arquivo e excluí-lo
+
+    $file = $file = "/opt/lampp/htdocs/cursophp/teste2.txt";
     
+    //Se o arquivo existe && foi deletado
+    if (file_exists($file)&& unlink($file))
+    {
+        print("the file exist! <br> But!! was deleted!");
+    }
+    else
+    {
+        print("The file not exist");
+    }
+
+    print($line);
+    // ----------------------------------------------------------
+    //Faz uma cópia de arquivo
+
+    $origin = "/opt/lampp/htdocs/cursophp/teste.txt";
+    $destination = "/opt/lampp/htdocs/cursophp/teste2.txt";
+
+    /*Descomentar abaixo para testar*/
+    if (copy($origin, $destination))
+    {
+        print("Sucess by copiyng the file!");
+    }
+    else
+    {
+        print("Error!");
+    }
 
 
 
 
+    print($line);
+    // ----------------------------------------------------------
 
+    //Fazer leitura de um arquivo texto
+    print(file_get_contents("/opt/lampp/htdocs/cursophp/teste.txt") . $b);
+
+    //Escrever um texto em arquivo externo
+    file_put_contents("/opt/lampp/htdocs/cursophp/teste.txt", "hello world!");
+    
+    //ler o arquio novamente
+    print(file_get_contents("/opt/lampp/htdocs/cursophp/teste.txt") . $b);    
 
     print($line);
     // ----------------------------------------------------------
@@ -117,27 +164,69 @@
 
     print($line);
     // ----------------------------------------------------------
-    //montando array
+    //TRABALHANDO COM ARRAYS!
 
-    $vet = array('maça', 'laranja', 'banana', 'pera', 'abacaxi');    
+    //Uma maneira de montar um array simples
+    $vet = array('maça', 'laranja', 'banana', 'pera', 'abacaxi');
 
+    //Segunda maneira de montar array ASSOCIATIVO, onde informo a chave e o seu valor
+    $vet2 = array("maça" => "vermelha", "laranja" => "Adivinha", "banana" => 3, "pera" => 4, "abacaxi" => 5);
+
+    //Terceira maneira de montar um array simples
+    $vet3[] = "Maria";
+    $vet3[] = "José";
+    $vet3[] = "Ricardo";
+    $vet3[] = "Jucelina";
+    $vet3[] = "Astrogildo";
+
+    //Quarta maneira de montar um vetor em formato ASSOCIATIVO
+    $vet4["nome"] = "Maria da Silva";
+    $vet4["endereco"] = "Rua das Macieiras";
+    $vet4["cidade"] = "Lajeado";
+    $vet4["estado"] = "RS";
+    $vet4["cep"] = "95900-000";
+
+
+    //Obter os dados do array "vet"
     foreach ($vet as $key => $value) //vetor, chave e o valor contido na chave
     {
         if ($value == 'pera')
         {
             print("$key - $value" . $b);
         }
-        // print("$key . $value - ");
     }
 
     print("-----<br>");
 
-    //Exemplo de array em que informo a chave e o seu valor
-    $vet2 = array("maça" => "vermelha", "laranja" => "Adivinha", "banana" => 3, "pera" => 4, "abacaxi" => 5);
+    //Obter os dados do array "vet2"
     foreach ($vet2 as $key => $value) 
     {
         print("array[$key] => $value <br>");
     }
+
+    print("-----<br>");
+
+    //Obter os dados do array "vet3"
+    foreach ($vet3 as $key => $value) 
+    {
+        print("array[$key] => $value <br>");
+    }
+
+    print("-----<br>");
+
+    //Obter os dados do array "vet4"
+    foreach ($vet4 as $key => $value) 
+    {
+        print("array[$key] => $value <br>");
+    }
+
+    print("-----<br>");
+
+    //Procurar um item em um array
+    $res = in_array("Juca", $vet3); //caso econtre retornará 1
+    print($res);
+
+    print("-----<br>");
 
     print($line);
     // ----------------------------------------------------------
